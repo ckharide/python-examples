@@ -20,6 +20,31 @@ class Minheap:
                 parentIndex = int (index / 2)
         print("Pushed element " , element)
     
+    def pop(self):
+        if(self.capacity < 1 ):
+            print ("Heap underflow")
+            return -1
+        else:
+            element = self.data[1]
+            self.data[1] = self.data[self.capacity]
+            self.capacity = self.capacity - 1 
+            index = 1 
+            leftchild = 2 * index
+            rightchild = 2 * index + 1 
+            while ( index < int (self.capacity / 2 )):
+              if (self.data[index] > self.data[leftchild] or self.data[index] > self.data[rightchild]):
+                if(self.data[leftchild] > self.data[rightchild]):
+                    self.data[index] , self.data[leftchild] = self.data[leftchild] , self.data[index]
+                    index = leftchild
+                elif (self.data[index] > self.data[rightchild]):
+                        self.data[index] , self.data[rightchild] = self.data[rightchild] , self.data[index]
+                        index = rightchild
+                else:
+                      break
+        return element
+
+
+    
     def printHeap(self):
         for i in self.data:
             print(i)
@@ -30,6 +55,7 @@ minheap.push(1)
 minheap.push(2)
 
 minheap.printHeap()
+print(minheap.pop())
 
 
 
