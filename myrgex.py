@@ -16,8 +16,15 @@ def find_all_frequent(text):
     sorted_list = sorted(myworddict.items(), key=lambda k: (k[1], k[0]), reverse= True)
     return sorted_list
 
+def isvalidpythonvariable(vartext):
+    matches = bool(re.match("^[A-Za-z0-9_]*$",vartext))
+    return matches
+
 x = find_all_frequent(paragraph)
 print(x)
+
+x1 = isvalidpythonvariable('first-name')
+print(x1)
     
 
 

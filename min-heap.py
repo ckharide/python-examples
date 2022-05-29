@@ -49,7 +49,7 @@ class Minheap:
         for i in self.data:
             print(i)
 
-minheap = Minheap(10)
+minheap = Minheap(2)
 minheap.push(4)
 minheap.push(1)
 minheap.push(2)
